@@ -23,10 +23,8 @@ RUN git clone --recursive https://github.com/hoytech/strfry.git /app \
 
 WORKDIR /app
 
-RUN mkdir -p /data/db
-
 COPY strfry.conf /app/strfry.conf
 
 EXPOSE 7777
 
-CMD ["./strfry", "relay", "--config", "/app/strfry.conf"]
+CMD ["sh", "-c", "mkdir -p /data/db && exec ./strfry relay --config /app/strfry.conf"]
