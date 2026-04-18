@@ -9,9 +9,11 @@ RUN apt-get update && apt-get install -y \
     wget \
     ca-certificates \
     flatbuffers-compiler \
+    libflatbuffers-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN flatc --version
+RUN which flatc && flatc --version
+RUN ls /usr/include/flatbuffers/flatbuffers.h
 
 RUN git clone --recursive https://github.com/hoytech/strfry.git /app \
     && cd /app \
