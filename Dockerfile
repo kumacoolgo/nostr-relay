@@ -1,6 +1,6 @@
 FROM debian:bookworm
 
-RUN apt update && apt install -y \
+RUN apt-get update && apt-get install -y \
     git \
     build-essential \
     pkg-config \
@@ -10,6 +10,8 @@ RUN apt update && apt install -y \
     ca-certificates \
     flatbuffers-compiler \
     && rm -rf /var/lib/apt/lists/*
+
+RUN flatc --version
 
 RUN git clone --recursive https://github.com/hoytech/strfry.git /app \
     && cd /app \
