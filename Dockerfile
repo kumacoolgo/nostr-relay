@@ -11,11 +11,13 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     flatbuffers-compiler \
     libflatbuffers-dev \
+    libzstd-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN which flatc && flatc --version
 RUN ls /usr/include/flatbuffers/flatbuffers.h
 RUN ls /usr/include/lmdb.h
+RUN ls /usr/include/zstd.h
 
 RUN git clone --recursive https://github.com/hoytech/strfry.git /app \
     && cd /app \
