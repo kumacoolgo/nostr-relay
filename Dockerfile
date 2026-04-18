@@ -1,7 +1,14 @@
 FROM debian:bookworm
 
 RUN apt update && apt install -y \
-    git build-essential pkg-config libssl-dev lmdb-utils wget ca-certificates \
+    git \
+    build-essential \
+    pkg-config \
+    libssl-dev \
+    lmdb-utils \
+    wget \
+    ca-certificates \
+    flatbuffers-compiler \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --recursive https://github.com/hoytech/strfry.git /app \
